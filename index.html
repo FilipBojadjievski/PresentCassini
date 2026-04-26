@@ -11,42 +11,69 @@
   deck-stage { background:#0E1015; }
   deck-stage section { background:#0E1015; }
   * { box-sizing: border-box; }
+
+  /* Auto-advance progress bar (top of viewport) */
+  #autorun-bar {
+    position: fixed; left: 0; top: 0; height: 3px; width: 0%;
+    background: linear-gradient(90deg, #00D1FF, #FF6666);
+    box-shadow: 0 0 12px rgba(0,209,255,0.6);
+    z-index: 2147483647; pointer-events: none;
+    transition: width 200ms linear;
+    opacity: 0.85;
+  }
+  #autorun-toggle {
+    position: fixed; right: 14px; top: 14px; z-index: 2147483647;
+    font-family: 'JetBrains Mono', ui-monospace, monospace;
+    font-size: 11px; letter-spacing: 0.14em; text-transform: uppercase;
+    padding: 8px 14px; border-radius: 999px; cursor: pointer;
+    color: #fff; background: rgba(0,0,0,0.55); backdrop-filter: blur(10px);
+    border: 1px solid rgba(255,255,255,0.18);
+  }
+  #autorun-toggle:hover { background: rgba(0,0,0,0.75); }
 </style>
 </head>
 <body>
 <deck-stage width="1920" height="1080">
-  <section data-label="01 Cover"><div id="s1" style="width:100%;height:100%"></div></section>
-  <section data-label="02 News Hook"><div id="s2" style="width:100%;height:100%"></div></section>
-  <section data-label="03 The Invisible Crisis"><div id="s3" style="width:100%;height:100%"></div></section>
-  <section data-label="04 The 7-Day Window"><div id="s4" style="width:100%;height:100%"></div></section>
-  <section data-label="05 Challenge 2"><div id="s5" style="width:100%;height:100%"></div></section>
-  <section data-label="06 The Solution"><div id="s6" style="width:100%;height:100%"></div></section>
-  <section data-label="07 Live Demo"><div id="s7" style="width:100%;height:100%"></div></section>
-  <section data-label="08 Powered by Copernicus"><div id="s8" style="width:100%;height:100%"></div></section>
-  <section data-label="09 Three-Point Data System"><div id="s9" style="width:100%;height:100%"></div></section>
-  <section data-label="10 TideAlert Framework"><div id="s10" style="width:100%;height:100%"></div></section>
-  <section data-label="11 IoT Sentinel"><div id="s11" style="width:100%;height:100%"></div></section>
-  <section data-label="12 Market Gap"><div id="s12" style="width:100%;height:100%"></div></section>
-  <section data-label="13 Business Model"><div id="s13" style="width:100%;height:100%"></div></section>
-  <section data-label="14 Year 1 Revenue Target"><div id="s14" style="width:100%;height:100%"></div></section>
-  <section data-label="15 Future Expansion"><div id="s15" style="width:100%;height:100%"></div></section>
-  <section data-label="16 The Team"><div id="s16" style="width:100%;height:100%"></div></section>
-  <section data-label="17 What's Next"><div id="s17" style="width:100%;height:100%"></div></section>
-  <section data-label="18 Thank You"><div id="s18" style="width:100%;height:100%"></div></section>
+  <section data-label="01 Cover"                     data-duration="7"><div id="s1"  style="width:100%;height:100%"></div></section>
+  <section data-label="02 News Hook"                 data-duration="12"><div id="s2"  style="width:100%;height:100%"></div></section>
+  <section data-label="03 Algae Spread"              data-duration="32"><div id="s3"  style="width:100%;height:100%"></div></section>
+  <section data-label="04 The Invisible Crisis"      data-duration="12"><div id="s4"  style="width:100%;height:100%"></div></section>
+  <section data-label="05 The 7-Day Window"          data-duration="11"><div id="s5"  style="width:100%;height:100%"></div></section>
+  <section data-label="06 Challenge 2"               data-duration="9"><div id="s6"  style="width:100%;height:100%"></div></section>
+  <section data-label="07 The Solution"              data-duration="14"><div id="s7"  style="width:100%;height:100%"></div></section>
+  <section data-label="08 Live Demo"                 data-duration="22"><div id="s8"  style="width:100%;height:100%"></div></section>
+  <section data-label="09 Powered by Copernicus"     data-duration="12"><div id="s9"  style="width:100%;height:100%"></div></section>
+  <section data-label="10 Three-Point Data System"   data-duration="11"><div id="s10" style="width:100%;height:100%"></div></section>
+  <section data-label="11 TideAlert Framework"       data-duration="10"><div id="s11" style="width:100%;height:100%"></div></section>
+  <section data-label="12 IoT Sentinel"              data-duration="9"><div id="s12" style="width:100%;height:100%"></div></section>
+  <section data-label="13 Market Gap"                data-duration="9"><div id="s13" style="width:100%;height:100%"></div></section>
+  <section data-label="14 Business Model"            data-duration="13"><div id="s14" style="width:100%;height:100%"></div></section>
+  <section data-label="15 Year 1 Revenue Target"     data-duration="9"><div id="s15" style="width:100%;height:100%"></div></section>
+  <section data-label="16 Future Expansion"          data-duration="10"><div id="s16" style="width:100%;height:100%"></div></section>
+  <section data-label="17 The Team"                  data-duration="7"><div id="s17" style="width:100%;height:100%"></div></section>
+  <section data-label="18 What's Next"               data-duration="7"><div id="s18" style="width:100%;height:100%"></div></section>
+  <section data-label="19 Thank You"                 data-duration="9"><div id="s19" style="width:100%;height:100%"></div></section>
 </deck-stage>
+
+<!-- Auto-advance UI -->
+<div id="autorun-bar"></div>
+<button id="autorun-toggle" type="button" aria-label="Toggle auto-advance">▶ auto · 3:45</button>
 
 <script src="deck-stage.js"></script>
 <script src="https://unpkg.com/react@18.3.1/umd/react.development.js" integrity="sha384-hD6/rw4ppMLGNu3tX5cjIb+uRZ7UkRJ6BPkLpg4hAu/6onKUg4lLsHAs9EBPT82L" crossorigin="anonymous"></script>
 <script src="https://unpkg.com/react-dom@18.3.1/umd/react-dom.development.js" integrity="sha384-u6aeetuaXnQ38mYT8rp6sbXaQe3NL9t+IBXmnYxwkUI2Hw4bsp2Wvmx4yRQF1uAm" crossorigin="anonymous"></script>
 <script src="https://unpkg.com/@babel/standalone@7.29.0/babel.min.js" integrity="sha384-m08KidiNqLdpJqLq95G/LEi8Qvjl/xUYll3QILypMoQ65QorJ9Lvtp2RXYGBFj1y" crossorigin="anonymous"></script>
 <script type="text/babel" src="slide-components.jsx"></script>
+<script type="text/babel" src="slide-iot-device.jsx"></script>
 <script type="text/babel" src="slides.jsx"></script>
 <script type="text/babel" src="slide-news-hook.jsx"></script>
+<script type="text/babel" src="slide-algae-spread.jsx"></script>
 <script type="text/babel" src="slide-video-showcase.jsx"></script>
 <script type="text/babel" src="slide-expansion.jsx"></script>
 <script type="text/babel">
   const slides = [
     Slide01Cover, NewsHookSlide,
+    AlgaeSpreadSlide,
     Slide02Crisis, Slide03Window, Slide04Challenge, Slide05Solution,
     VideoShowcaseSlide,
     Slide06Copernicus, Slide07Triangle, Slide08Framework, Slide09IoT, Slide10Gap,
@@ -58,6 +85,104 @@
     const el = document.getElementById('s' + (i+1));
     if (el) ReactDOM.createRoot(el).render(<Comp/>);
   });
+</script>
+
+<!-- Auto-advance timer: total 3:45 (225s) -->
+<script>
+(() => {
+  const stage = document.querySelector('deck-stage');
+  const bar   = document.getElementById('autorun-bar');
+  const btn   = document.getElementById('autorun-toggle');
+  if (!stage || !bar || !btn) return;
+
+  let running   = false;
+  let timer     = null;
+  let tick      = null;
+  let elapsed   = 0;        // ms within the current slide
+  let lastStamp = 0;
+  let durations = [];       // ms per slide, indexed 0..N-1
+
+  const fmt = (sec) => {
+    const m = Math.floor(sec / 60);
+    const s = String(Math.floor(sec % 60)).padStart(2, '0');
+    return `${m}:${s}`;
+  };
+
+  const refreshDurations = () => {
+    const sections = stage.querySelectorAll(':scope > section');
+    durations = Array.from(sections).map(s => {
+      const v = parseFloat(s.getAttribute('data-duration'));
+      return (isFinite(v) && v > 0 ? v : 10) * 1000;
+    });
+    const total = durations.reduce((a, b) => a + b, 0) / 1000;
+    btn.dataset.total = fmt(total);
+  };
+
+  const stop = () => {
+    running = false;
+    if (timer) { clearTimeout(timer); timer = null; }
+    if (tick)  { clearInterval(tick); tick = null; }
+    bar.style.width = '0%';
+    btn.textContent = `▶ auto · ${btn.dataset.total || '3:45'}`;
+  };
+
+  const scheduleAdvance = () => {
+    if (!running) return;
+    const idx = stage.index ?? 0;
+    const dur = durations[idx] || 10000;
+    if (timer) clearTimeout(timer);
+    if (tick)  clearInterval(tick);
+    elapsed   = 0;
+    lastStamp = performance.now();
+    bar.style.width = '0%';
+
+    tick = setInterval(() => {
+      const now = performance.now();
+      elapsed += (now - lastStamp);
+      lastStamp = now;
+      const pct = Math.min(100, (elapsed / dur) * 100);
+      bar.style.width = pct + '%';
+    }, 100);
+
+    timer = setTimeout(() => {
+      if (!running) return;
+      const last = (stage.length - 1);
+      if ((stage.index ?? 0) >= last) { stop(); return; }
+      stage.next();
+    }, dur);
+  };
+
+  const start = () => {
+    refreshDurations();
+    running = true;
+    btn.textContent = '❚❚ pause auto';
+    scheduleAdvance();
+  };
+
+  btn.addEventListener('click', () => {
+    if (running) stop();
+    else start();
+  });
+
+  // Restart timer whenever a slide changes (manual nav, autoplay, init).
+  stage.addEventListener('slidechange', () => {
+    if (running) scheduleAdvance();
+  });
+
+  // Press 'A' to toggle auto-advance.
+  window.addEventListener('keydown', (e) => {
+    const t = e.target;
+    if (t && (t.isContentEditable || /^(INPUT|TEXTAREA|SELECT)$/.test(t.tagName))) return;
+    if (e.metaKey || e.ctrlKey || e.altKey) return;
+    if (e.key === 'a' || e.key === 'A') {
+      e.preventDefault();
+      btn.click();
+    }
+  });
+
+  // Prime the total readout.
+  setTimeout(refreshDurations, 0);
+})();
 </script>
 </body>
 </html>

@@ -521,9 +521,9 @@ function Slide09IoT() {
           </div>
         </div>
 
-        {/* Beach Alert Totem mock */}
+        {/* 3D model of the underwater sensor — orbits from vertical to bottom view */}
         <div style={{ display: 'flex', justifyContent: 'center', alignItems: 'center' }}>
-          <BeachTotem/>
+          <IoTDeviceModel/>
         </div>
       </div>
       <SlideFooter num={10} total={TOTAL} section="Product" sectionId="PRODUCT"/>
