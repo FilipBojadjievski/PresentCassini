@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>RedMetrics · Pitch Deck</title>
+<link rel="stylesheet" href="colors_and_type.css"/>
+<style>
+  html, body { margin:0; padding:0; background:#0E1015; overflow:hidden; height:100%; }
+  body { font-family: 'Inter', system-ui, sans-serif; color: #F1F5F9; }
+  deck-stage { background:#0E1015; }
+  deck-stage section { background:#0E1015; }
+  * { box-sizing: border-box; }
+</style>
+</head>
+<body>
+<deck-stage width="1920" height="1080">
+  <section data-label="01 Cover"><div id="s1" style="width:100%;height:100%"></div></section>
+  <section data-label="02 News Hook"><div id="s2" style="width:100%;height:100%"></div></section>
+  <section data-label="03 The Invisible Crisis"><div id="s3" style="width:100%;height:100%"></div></section>
+  <section data-label="04 The 7-Day Window"><div id="s4" style="width:100%;height:100%"></div></section>
+  <section data-label="05 Challenge 2"><div id="s5" style="width:100%;height:100%"></div></section>
+  <section data-label="06 The Solution"><div id="s6" style="width:100%;height:100%"></div></section>
+  <section data-label="07 Powered by Copernicus"><div id="s7" style="width:100%;height:100%"></div></section>
+  <section data-label="08 Three-Point Data System"><div id="s8" style="width:100%;height:100%"></div></section>
+  <section data-label="09 TideAlert Framework"><div id="s9" style="width:100%;height:100%"></div></section>
+  <section data-label="10 IoT Sentinel"><div id="s10" style="width:100%;height:100%"></div></section>
+  <section data-label="11 Market Gap"><div id="s11" style="width:100%;height:100%"></div></section>
+  <section data-label="12 Business Model"><div id="s12" style="width:100%;height:100%"></div></section>
+  <section data-label="13 Year 1 Revenue Target"><div id="s13" style="width:100%;height:100%"></div></section>
+  <section data-label="14 Future Expansion"><div id="s14" style="width:100%;height:100%"></div></section>
+  <section data-label="15 The Team"><div id="s15" style="width:100%;height:100%"></div></section>
+  <section data-label="16 What's Next"><div id="s16" style="width:100%;height:100%"></div></section>
+  <section data-label="17 Thank You"><div id="s17" style="width:100%;height:100%"></div></section>
+</deck-stage>
+
+<script type="application/json" id="speaker-notes">
+[
+"RedMetrics. Cassini Hackathon, Challenge Two — water pollution. We turn Copernicus satellite data into a Respiratory Risk Index for hospitals and insurers.",
+"Red Tide is invisible until it hits the coast. Then it spikes respiratory ER admissions by fifty-four percent. Genoa 2005 — over two hundred admissions in days. Basque, two thousand twenty-four — almost seven hundred poisonings. Italy alone — half a billion euros a year.",
+"Here's the gap nobody is using. Satellites see the bloom forming a full week before the first patient walks in. Current monitoring waits until the ER is overwhelmed. We close that seven-day window.",
+"Why we're here for Challenge Two. Red Tide originates in water, spreads in water, detectable from space. It's water pollution — and the fact our data saves lives is what makes it a viable business.",
+"The solution: one number, seventy-two hours of warning. The Respiratory Risk Index — a zero-to-one-hundred score. Above eighty-five, parametric insurance fires automatically.",
+"Built entirely on Copernicus. Sentinel-2 for ocean colour. CMEMS for currents and chlorophyll. ERA5 for wind and waves. Open access. Zero proprietary dependencies.",
+"Our edge is a three-point data system. Satellite gives the big picture. Our IoT sentinels give ground truth days early. A decade of historical bloom and admission data taught the model what a fifty-four percent surge looks like before it arrives.",
+"Four stages: bloom probability, RRI physics, hospital surge, parametric trigger. AUC zero point nine five. Daily pipeline on Supabase.",
+"Our IoT sentinel measures seven variables continuously — pH, dissolved oxygen, nitrate, phosphate, temperature, conductivity, humidity. Low-cost, deployable today.",
+"Existing tools detect blooms after they happen and stop at chlorophyll. Nobody fuses satellite, IoT, and historical data into a respiratory health forecast. That is the gap.",
+"Data-as-a-service, B2B. Hospitals subscribe to a surge forecast API. Insurers buy our parametric trigger. Two flows, one platform.",
+"Year one target: two hundred thirty-four thousand euros ARR. Three hospital subscriptions, two insurance pilots on the Ligurian coast.",
+"And the same engine scales. Hotels lose tens of thousands per closed weekend. Beach concessions face fourteen closure days a season. Coastal property loses eighteen percent in bookings during blooms. Aquaculture sees ninety-percent stock loss in severe events. Same RRI — four new contract surfaces.",
+"Our team — seven people. Software, ML, hardware, business, and a medical lead for clinical validation. Models running, data flowing, dashboards live.",
+"Next: Ligurian pilot, regulatory pathway, Series A in eighteen months. Scale to five Mediterranean coastlines.",
+"RedMetrics. Seventy-two hours of warning. One Respiratory Risk Index. Thank you."
+]
+</script>
+<script src="deck-stage.js"></script>
+<script src="https://unpkg.com/react@18.3.1/umd/react.development.js" integrity="sha384-hD6/rw4ppMLGNu3tX5cjIb+uRZ7UkRJ6BPkLpg4hAu/6onKUg4lLsHAs9EBPT82L" crossorigin="anonymous"></script>
+<script src="https://unpkg.com/react-dom@18.3.1/umd/react-dom.development.js" integrity="sha384-u6aeetuaXnQ38mYT8rp6sbXaQe3NL9t+IBXmnYxwkUI2Hw4bsp2Wvmx4yRQF1uAm" crossorigin="anonymous"></script>
+<script src="https://unpkg.com/@babel/standalone@7.29.0/babel.min.js" integrity="sha384-m08KidiNqLdpJqLq95G/LEi8Qvjl/xUYll3QILypMoQ65QorJ9Lvtp2RXYGBFj1y" crossorigin="anonymous"></script>
+<script type="text/babel" src="slide-components.jsx"></script>
+<script type="text/babel" src="slides.jsx"></script>
+<script type="text/babel" src="slide-news-hook.jsx"></script>
+<script type="text/babel" src="slide-expansion.jsx"></script>
+<script type="text/babel">
+  const slides = [
+    Slide01Cover, NewsHookSlide,
+    Slide02Crisis, Slide03Window, Slide04Challenge, Slide05Solution,
+    Slide06Copernicus, Slide07Triangle, Slide08Framework, Slide09IoT, Slide10Gap,
+    Slide11Business, Slide12Revenue,
+    SlideExpansion,
+    Slide13Team, Slide14Next, Slide15Thanks,
+  ];
+  slides.forEach((Comp, i) => {
+    const el = document.getElementById('s' + (i+1));
+    if (el) ReactDOM.createRoot(el).render(<Comp/>);
+  });
+</script>
+</body>
+</html>
