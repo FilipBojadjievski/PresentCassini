@@ -690,16 +690,16 @@ function Slide12Revenue() {
   return (
     <SlideFrame label="12 Year 1 Revenue Target" bg={COLORS.bg}>
       <Bathymetry opacity={0.05}/>
-      <SlideHeader eyebrow="Year 1 · Conservative" title="€234,000 ARR · Ligurian Coast."/>
+      <SlideHeader eyebrow="Year 1 · Conservative" title="€110,000 ARR · 50 regional insurers."/>
       <div style={{ position: 'relative', display: 'grid', gridTemplateColumns: '1.2fr 1fr', gap: 80, flex: 1, alignItems: 'center' }}>
         <div>
-          <BigNumber value="€234k" label="Year 1 conservative ARR · Ligurian pilot" color={COLORS.cyan}/>
+          <BigNumber value="€110k" label="Year 1 conservative ARR · 50 regional insurers + municipal syndicates" color={COLORS.cyan}/>
           <Hairline style={{ margin: '52px 0' }}/>
           <div style={{ display: 'flex', flexDirection: 'column', gap: 28 }}>
             {[
-              { qty: '5', who: 'Hotel groups',         seg: 'Coastal exposure cover' },
-              { qty: '2', who: 'Regional insurers',    seg: 'Embedded parametric' },
-              { qty: '2', who: 'Aquaculture operators',seg: 'Asset-loss trigger' },
+              { qty: '50', who: 'Live Portfolio API',   seg: '€50–150 / mo · recurring' },
+              { qty: '50', who: 'Actuarial license',    seg: '€500–1k / region · one-time' },
+              { qty: '50', who: 'Integration setup',    seg: '€250 / client · one-time' },
             ].map(r => (
               <div key={r.who} style={{ display: 'grid', gridTemplateColumns: '100px 1fr 1fr', gap: 24, alignItems: 'baseline' }}>
                 <div style={{ fontFamily: 'Space Grotesk', fontSize: 56, fontWeight: 600, color: COLORS.cyan, lineHeight: 1, fontVariantNumeric: 'tabular-nums' }}>{r.qty}</div>
@@ -716,7 +716,7 @@ function Slide12Revenue() {
             {[
               ['Source data',     'Copernicus · €0'],
               ['Infrastructure',  'Supabase EU · €600/mo'],
-              ['Break-even',      '8–12 active clients'],
+              ['Break-even',      '12 active clients'],
               ['Funding ask',     'ESA BIC · €50k non-equity'],
             ].map(([k,v]) => (
               <div key={k} style={{ display: 'flex', justifyContent: 'space-between', paddingBottom: 16, borderBottom: `1px solid ${COLORS.border}` }}>
