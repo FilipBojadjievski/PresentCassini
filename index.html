@@ -36,28 +36,31 @@
 <deck-stage width="1920" height="1080">
   <section data-label="01 Cover"                     data-duration="7"><div id="s1"  style="width:100%;height:100%"></div></section>
   <section data-label="02 News Hook"                 data-duration="12"><div id="s2"  style="width:100%;height:100%"></div></section>
-  <section data-label="03 Algae Spread"              data-duration="32"><div id="s3"  style="width:100%;height:100%"></div></section>
-  <section data-label="04 The Invisible Crisis"      data-duration="12"><div id="s4"  style="width:100%;height:100%"></div></section>
-  <section data-label="05 The 7-Day Window"          data-duration="11"><div id="s5"  style="width:100%;height:100%"></div></section>
-  <section data-label="06 Challenge 2"               data-duration="9"><div id="s6"  style="width:100%;height:100%"></div></section>
-  <section data-label="07 The Solution"              data-duration="14"><div id="s7"  style="width:100%;height:100%"></div></section>
-  <section data-label="08 Live Demo"                 data-duration="22"><div id="s8"  style="width:100%;height:100%"></div></section>
-  <section data-label="09 Powered by Copernicus"     data-duration="12"><div id="s9"  style="width:100%;height:100%"></div></section>
-  <section data-label="10 Three-Point Data System"   data-duration="11"><div id="s10" style="width:100%;height:100%"></div></section>
-  <section data-label="11 TideAlert Framework"       data-duration="10"><div id="s11" style="width:100%;height:100%"></div></section>
-  <section data-label="12 IoT Sentinel"              data-duration="9"><div id="s12" style="width:100%;height:100%"></div></section>
-  <section data-label="13 Market Gap"                data-duration="9"><div id="s13" style="width:100%;height:100%"></div></section>
-  <section data-label="14 Business Model"            data-duration="13"><div id="s14" style="width:100%;height:100%"></div></section>
-  <section data-label="15 Year 1 Revenue Target"     data-duration="9"><div id="s15" style="width:100%;height:100%"></div></section>
-  <section data-label="16 Future Expansion"          data-duration="10"><div id="s16" style="width:100%;height:100%"></div></section>
-  <section data-label="17 The Team"                  data-duration="7"><div id="s17" style="width:100%;height:100%"></div></section>
-  <section data-label="18 What's Next"               data-duration="7"><div id="s18" style="width:100%;height:100%"></div></section>
-  <section data-label="19 Thank You"                 data-duration="9"><div id="s19" style="width:100%;height:100%"></div></section>
+  <section data-label="03 Red Tide Reality"          data-duration="7"><div id="s3"  style="width:100%;height:100%"></div></section>
+  <section data-label="04 Algae Spread"              data-duration="28"><div id="s4"  style="width:100%;height:100%"></div></section>
+  <section data-label="05 The Invisible Crisis"      data-duration="12"><div id="s5"  style="width:100%;height:100%"></div></section>
+  <section data-label="06 The 7-Day Window"          data-duration="11"><div id="s6"  style="width:100%;height:100%"></div></section>
+  <section data-label="07 Challenge 2"               data-duration="9"><div id="s7"  style="width:100%;height:100%"></div></section>
+  <section data-label="08 The Solution"              data-duration="14"><div id="s8"  style="width:100%;height:100%"></div></section>
+  <section data-label="09 Live Demo"                 data-duration="19"><div id="s9"  style="width:100%;height:100%"></div></section>
+  <section data-label="10 Powered by Copernicus"     data-duration="12"><div id="s10" style="width:100%;height:100%"></div></section>
+  <section data-label="11 Three-Point Data System"   data-duration="11"><div id="s11" style="width:100%;height:100%"></div></section>
+  <section data-label="12 TideAlert Framework"       data-duration="10"><div id="s12" style="width:100%;height:100%"></div></section>
+  <section data-label="13 IoT Sentinel"              data-duration="9"><div id="s13" style="width:100%;height:100%"></div></section>
+  <section data-label="14 Market Gap"                data-duration="9"><div id="s14" style="width:100%;height:100%"></div></section>
+  <section data-label="15 Business Model"            data-duration="13"><div id="s15" style="width:100%;height:100%"></div></section>
+  <section data-label="16 Year 1 Revenue Target"     data-duration="9"><div id="s16" style="width:100%;height:100%"></div></section>
+  <section data-label="17 Future Expansion"          data-duration="10"><div id="s17" style="width:100%;height:100%"></div></section>
+  <section data-label="18 The Team"                  data-duration="7"><div id="s18" style="width:100%;height:100%"></div></section>
+  <section data-label="19 What's Next"               data-duration="7"><div id="s19" style="width:100%;height:100%"></div></section>
+  <section data-label="20 Thank You"                 data-duration="9"><div id="s20" style="width:100%;height:100%"></div></section>
 </deck-stage>
 
 <!-- Auto-advance UI -->
 <div id="autorun-bar"></div>
 <button id="autorun-toggle" type="button" aria-label="Toggle auto-advance">▶ auto · 3:45</button>
+<!-- 20 slides, durations sum to 225s (3:45 deck) — speak for 4:00, Thank You holds for the last 24s -->
+
 
 <script src="deck-stage.js"></script>
 <script src="https://unpkg.com/react@18.3.1/umd/react.development.js" integrity="sha384-hD6/rw4ppMLGNu3tX5cjIb+uRZ7UkRJ6BPkLpg4hAu/6onKUg4lLsHAs9EBPT82L" crossorigin="anonymous"></script>
@@ -67,12 +70,14 @@
 <script type="text/babel" src="slide-iot-device.jsx"></script>
 <script type="text/babel" src="slides.jsx"></script>
 <script type="text/babel" src="slide-news-hook.jsx"></script>
+<script type="text/babel" src="slide-red-tide-photo.jsx"></script>
 <script type="text/babel" src="slide-algae-spread.jsx"></script>
 <script type="text/babel" src="slide-video-showcase.jsx"></script>
 <script type="text/babel" src="slide-expansion.jsx"></script>
 <script type="text/babel">
   const slides = [
     Slide01Cover, NewsHookSlide,
+    RedTidePhotoSlide,
     AlgaeSpreadSlide,
     Slide02Crisis, Slide03Window, Slide04Challenge, Slide05Solution,
     VideoShowcaseSlide,
